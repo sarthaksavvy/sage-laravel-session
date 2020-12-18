@@ -1,15 +1,11 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/', [HomeController::class, 'home']);
+Route::get('/about', [HomeController::class, 'about']);
+Route::get('/contact', [HomeController::class, 'contact']);
 
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-// Route::post()
+Route::get('/user', [UserController::class, 'index']);
+Route::post('store-user',[UserController::class,'store']);
